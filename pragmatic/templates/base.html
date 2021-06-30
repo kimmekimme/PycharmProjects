@@ -1,0 +1,19 @@
+<!--화면구성: 상,중,하-->
+<!DOCTYPE html>
+<html lang="ko">
+
+{% include 'head.html' %}
+<!--파이참 옵션: alt + 마우스(다중선택)-->
+<body>
+    {% include 'header.html' %}
+
+    <hr>
+
+    {% block content %} <!--content 블럭 생성-->
+    {% endblock %}      <!--block 끝 -->
+
+    <hr> <!--구분선-->
+
+    {% include 'footer.html' %}
+</body>
+</html>

@@ -5,4 +5,4 @@ from django.shortcuts import render
 # Create your views here.
 
 def hello_world(request):
-    return HttpResponse('Hello world!')
+    return render(request, 'accountapp/hello_world.html') #루트/파일명
