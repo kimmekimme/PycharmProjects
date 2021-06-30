@@ -22,7 +22,7 @@ env = environ.Env(
 BASE_DIR = Path(__file__).resolve().parent.parent
 # reading .env file
 environ.Env.read_env(
-    env_file=os.path.join(BASE_DIR, '.env')
+    env_file=os.path.join(BASE_DIR, '.env') #ctrl+b 해당선언부로이동(파이참 기능)
 )
 
 
@@ -130,7 +130,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
