@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load bootstrap4 %}
 {% block content %}
 
    <div style="border-radius: 1rem; margin: 2rem; text-align: center;">
@@ -7,7 +7,8 @@
             Hello World LIST!
         </h1>
        <form action="/account/hello_world/" method="post">
-           {% csrf_token %} <!--POST방식으로 보낼때 장고의 보안방식 선언-->
+           {% csrf_token %}
+         <!--POST방식으로 보낼때 장고의 보안방식 선언-->
            <div>
                <input type="text" name="hello_world_input">
 

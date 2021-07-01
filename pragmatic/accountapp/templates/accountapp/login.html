@@ -1,15 +1,17 @@
 {% extends 'base.html' %}
-
+{% load bootstrap4 %}
 {% block content %}
-    <div style="text-align: center;">
+
+    <div style="text-align: center; max-width: 500px; margin: 4rem auto">
       <div>
         <h4>Login</h4>
       </div>
       <div>
         <form action=" " method="post">
             {% csrf_token %} <!--장고기본 보안토큰-->
-            {{ form }} <!--장고기능-->
-            <input type="submit" class="btn btn-primary">
+          <!--  {{ form }} 장고기능-->
+            {% bootstrap_form form %}
+            <input type="submit" class="btn btn-dark rounded-pill col-6 mt-3">
         </form>
       </div>
     </div>
