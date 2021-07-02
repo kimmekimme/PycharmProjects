@@ -144,3 +144,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = reverse_lazy('accountapp:hello_world')
 LOGOUT_REDIRECT_URL = reverse_lazy('accountapp:login')
+
+#이미지 세팅
+MEDIA_URL = '/media/' #주소창에서 접근 #ex)127.0.01:8000/media/파일명
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #서버에 업로드했을때 저장되는 루트
