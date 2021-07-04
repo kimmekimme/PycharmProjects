@@ -8,15 +8,19 @@ from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
+from django.views.generic.list import MultipleObjectMixin
 
 from accountapp.forms import AccountUpdateForm
 from accountapp.models import HelloWorld
 from accountapp.decorators import account_ownership_required
+from articleapp.models import Article
+from projectapp.views import ProjectDetailView
 
 has_ownership = [
     account_ownership_required,
     login_required
 ]
+
 
 @login_required  # 데코레이터
 def hello_world(request):
@@ -42,14 +46,19 @@ class AccountCreateView(CreateView):
     template_name = 'accountapp/create.html'
 
 
-class AccountDetailView(DetailView):
+class AccountDetailView(DetailView, MultipleObjectMixin):
     model = User
     template_name = 'accountapp/detail.html'
     context_object_name = 'target_user'
+    paginate_by = 25
+
+    def get_context_data(self, **kwargs):
+        object_list = Article.objects.filter(writer=self.get_object())
+        return super(AccountDetailView, self).get_context_data(object_list=object_list, **kwargs)
 
 
 @method_decorator(has_ownership, 'get')
-@method_decorator(has_ownership, 'post')#일반 fuction에 사용할수있는 데코레이터를 class메서드에 사용할수 있게 변환해주는 어노테이션
+@method_decorator(has_ownership, 'post')  # 일반 fuction에 사용할수있는 데코레이터를 class메서드에 사용할수 있게 변환해주는 어노테이션
 class AccountUpdateView(UpdateView):
     model = User  # User: 장고제공 클래스
     form_class = AccountUpdateForm  # 장고제공 클래스
