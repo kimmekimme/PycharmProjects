@@ -18,5 +18,6 @@ class Article(models.Model):
 
 
 
+
 #auto_creatd -> x
 #auto_now_add -> o
