@@ -11,7 +11,6 @@ from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 from django.views.generic.list import MultipleObjectMixin
 
 from accountapp.forms import AccountUpdateForm
-from accountapp.models import HelloWorld
 from accountapp.decorators import account_ownership_required
 from articleapp.models import Article
 from projectapp.views import ProjectDetailView
@@ -20,23 +19,6 @@ has_ownership = [
     account_ownership_required,
     login_required
 ]
-
-
-@login_required  # 데코레이터
-def hello_world(request):
-    if request.method == "POST":
-
-        temp = request.POST.get('hello_world_input')
-
-        new_hello_world = HelloWorld()  # 객체생성
-        new_hello_world.text = temp
-        new_hello_world.save()  # 객체 저장
-
-        return HttpResponseRedirect(reverse('accountapp:hello_world'))  # 루트/파일명
-    else:
-        hello_world_list = HelloWorld.objects.all()
-        return render(request, 'accountapp/hello_world.html',
-                      context={'hello_world_list': hello_world_list})  # 루트/파일명
 
 
 class AccountCreateView(CreateView):
