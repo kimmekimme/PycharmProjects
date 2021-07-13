@@ -2,9 +2,9 @@ FROM python:3.9.0
 
 WORKDIR /home/
 
-RUN git clone https://github.com/kimmekimme/PycharmProjects/tree/main/pragmatic.git
+RUN git clone https://github.com/kimmekimme/PycharmProjects.git
 
-WORKDIR /home/pragmatic/
+WORKDIR /home/PycharmProjects/pragmatic/
 
 RUN pip install -r requirements.txt
 
