@@ -50,4 +50,5 @@ print("Hello! Welcome to Pragmatic")
 ```
 ---
 <!--image-->
+## Video
 ![실행영상](https://user-images.githubusercontent.com/80742971/128607730-cda624c4-e74b-4402-b89b-8eabefb7fdc0.gif)
