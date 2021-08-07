@@ -50,4 +50,4 @@ print("Hello! Welcome to Pragmatic")
 ```
 ---
 <!--image-->
-![](https://github.com/kimmekimme/PycharmProjects/issues/1#issue-963263997)
+![실행화면](https://github.com/kimmekimme/PycharmProjects/issues/1#issue-963263997)
