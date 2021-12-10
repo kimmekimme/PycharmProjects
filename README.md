@@ -25,6 +25,7 @@ print("Hello! Welcome to Pragmatic")
 - Docker
 - Nginx
 - Vultr
+- AWS
 ```
 ---
 ## App
